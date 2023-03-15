@@ -4,7 +4,7 @@ table, th, td {
   border-color: white;
   color: white;
   padding: 5px;
-  
+  text-align: left;  
 }
 
 /* The sidebar menu */
@@ -18,7 +18,7 @@ table, th, td {
   background-color: #111; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
-  padding-left: 10px;
+  padding-left: 10px; 
 }
 
 /* The navigation menu links */
@@ -40,6 +40,12 @@ table, th, td {
   padding: 0px 0px 0px 0px;
   color: #f1f1f1;
 }
+
+.sidenav p {
+  padding: 0px 0px 0px 0px;
+  color: #f1f1f1;
+}
+
 
 
 /* Style page content */
