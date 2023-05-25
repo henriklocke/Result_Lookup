@@ -6,84 +6,146 @@
 
 master_list = []
 
-
-model_area = 'FSA'
-groupby_acronym_owner = True
-# joint_plot_header = 'Design Storms'
-model = 'FSA_Base_2020pop_V049.mdb'
-output_folder = r'J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\System_Assessment\Plots'
-result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\System_Assessment\FSA_System_Assessment"
-res_list = []
-res_list.append(['3 * ADWF, 2020pop','FSA_3ADWF_2020pop_Base.res1d','Three Times ADWF'])
-res_list.append(['3 * ADWF, 2030pop','FSA_3ADWF_2030pop_BurnabyLake.res1d','Three Times ADWF'])
-res_list.append(['3 * ADWF, 2040pop','FSA_3ADWF_2040pop_BurnabyLake.res1d','Three Times ADWF'])
-res_list.append(['3 * ADWF, 2050pop','FSA_3ADWF_2050pop_BurnabyLake.res1d','Three Times ADWF'])
-res_list.append(['3 * ADWF, 2060pop','FSA_3ADWF_2060pop_BurnabyLake.res1d','Three Times ADWF'])
-res_list.append(['DWF, 2020pop','FSA_DWF_2021-07-22_3d_2020pop_Base.res1d','Dry Weather Flow'])
-res_list.append(['DWF, 2030pop','FSA_DWF_2021-07-22_3d_2030pop_BurnabyLake.res1d','Dry Weather Flow'])
-res_list.append(['DWF, 2040pop','FSA_DWF_2021-07-22_3d_2040pop_BurnabyLake.res1d','Dry Weather Flow'])
-res_list.append(['DWF, 2050pop','FSA_DWF_2021-07-22_3d_2050pop_BurnabyLake.res1d','Dry Weather Flow'])
-res_list.append(['DWF, 2060pop','FSA_DWF_2021-07-22_3d_2060pop_BurnabyLake.res1d','Dry Weather Flow'])
-res_list.append(['Nov 15 2021, 2020pop','FSA_WWF_2021-11-12_5d_2020pop_Base.res1d','Nov 15 2021 Storm'])
-res_list.append(['Nov 15 2021, 2030pop','FSA_WWF_2021-11-12_5d_2030pop_BurnabyLake.res1d','Nov 15 2021 Storm'])
-res_list.append(['Nov 15 2021, 2040pop','FSA_WWF_2021-11-12_5d_2040pop_BurnabyLake.res1d','Nov 15 2021 Storm'])
-res_list.append(['Nov 15 2021, 2050pop','FSA_WWF_2021-11-12_5d_2050pop_BurnabyLake.res1d','Nov 15 2021 Storm'])
-res_list.append(['Nov 15 2021, 2060pop','FSA_WWF_2021-11-12_5d_2060pop_BurnabyLake.res1d','Nov 15 2021 Storm'])
-res_list.append(['2yr 24h NoCC , 2020pop','FSA_WWF_EX-2yr-24hr-AES_2020pop_Base.res1d','2yr 24h Design Storm'])
-res_list.append(['2yr 24h NoCC , 2030pop','FSA_WWF_EX-2yr-24hr-AES_2030pop_BurnabyLake.res1d','2yr 24h Design Storm'])
-res_list.append(['2yr 24h 2050H, 2040pop','FSA_WWF_2050H-2yr-24hr-AES_2040pop_BurnabyLake.res1d','2yr 24h Design Storm'])
-res_list.append(['2yr 24h 2050H, 2050pop','FSA_WWF_2050H-2yr-24hr-AES_2050pop_BurnabyLake.res1d','2yr 24h Design Storm'])
-res_list.append(['2yr 24h 2100H, 2060pop','FSA_WWF_2100H-2yr-24hr-AES_2060pop_BurnabyLake.res1d','2yr 24h Design Storm'])
-res_list.append(['5yr 24h NoCC, 2020pop','FSA_WWF_EX-5yr-24hr-AES_2020pop_Base.res1d','5yr 24h Design Storm'])
-res_list.append(['5yr 24h NoCC, 2030pop','FSA_WWF_EX-5yr-24hr-AES_2030pop_BurnabyLake.res1d','5yr 24h Design Storm'])
-res_list.append(['5yr 24h 2050H, 2040pop','FSA_WWF_2050H-5yr-24hr-AES_2040pop_BurnabyLake.res1d','5yr 24h Design Storm'])
-res_list.append(['5yr 24h 2050H, 2050pop','FSA_WWF_2050H-5yr-24hr-AES_2050pop_BurnabyLake.res1d','5yr 24h Design Storm'])
-res_list.append(['5yr 24h 2100H, 2060pop','FSA_WWF_2100H-5yr-24hr-AES_2060pop_BurnabyLake.res1d','5yr 24h Design Storm'])
-res_list.append(['10yr 24h NoCC, 2020pop','FSA_WWF_EX-10yr-24hr-AES_2020pop_Base.res1d','10yr 24h Design Storm'])
-res_list.append(['10yr 24h NoCC, 2030pop','FSA_WWF_EX-10yr-24hr-AES_2030pop_BurnabyLake.res1d','10yr 24h Design Storm'])
-res_list.append(['10yr 24h 2050H, 2040pop','FSA_WWF_2050H-10yr-24hr-AES_2040pop_BurnabyLake.res1d','10yr 24h Design Storm'])
-res_list.append(['10yr 24h 2050H, 2050pop','FSA_WWF_2050H-10yr-24hr-AES_2050pop_BurnabyLake.res1d','10yr 24h Design Storm'])
-res_list.append(['10yr 24h 2100H, 2060pop','FSA_WWF_2100H-10yr-24hr-AES_2060pop_BurnabyLake.res1d','10yr 24h Design Storm'])
-
-
-
-
-master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner])
-
-# model_area = 'LISA'
-# groupby_acronym_owner = False
-# joint_plot_header = 'Design Storms'
-# model = 'Lisa_Base.sqlite'
-# output_folder = r'J:\SEWER_AREA_MODELS\LISA\04_ANALYSIS_WORK\System_Assessment\Design Storms (2022 Population)\Plots'
-# result_folder = r"J:\SEWER_AREA_MODELS\LISA\04_ANALYSIS_WORK\System_Assessment\Design Storms (2022 Population)\Results"
+# #MIKE+ comparison
+# model_area = 'FSA'
+# groupby_acronym_owner = True
+# pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
+# # joint_plot_header = 'Design Storms'
+# model = 'FSA_Base_2020pop_V049.mdb'
 # res_list = []
-# res_list.append(['2yr 24h No Climate Change','LISA_WWF_EX-2yr-24hr-SCS_2023_PopulationDefault_Network_HD.res1d',1])
-# res_list.append(['5yr 24h No Climate Change','LISA_WWF_EX-5yr-24hr-SCS_2023_PopulationDefault_Network_HD.res1d',1])
-# res_list.append(['10yr 24h No Climate Change','LISA_WWF_EX-10yr-24hr-SCS_2023_PopulationDefault_Network_HD.res1d',1])
-# res_list.append(['25yr 24h No Climate Change','LISA_WWF_EX-25yr-24hr-SCS_2023_PopulationDefault_Network_HD.res1d',1])
-# res_list.append(['50yr 24h No Climate Change','LISA_WWF_EX-50yr-24hr-SCS_2023_PopulationDefault_Network_HD.res1d',1])
-# res_list.append(['100yr 24h No Climate Change','LISA_WWF_EX-100yr-24hr-SCS_2023_PopulationDefault_Network_HD.res1d',1])
-# res_list.append(['200yr 24h No Climate Change','LISA_WWF_EX-200yr-24hr-SCS_2023_PopulationDefault_Network_HD.res1d',1])
-# res_list.append(['Dry Weather Flow','DWF_2023_PopulationNetwork_HD.res1d',0])
-# res_list.append(['Basic Service Flow','Lisa_BSF_11p2k_2023_Population.res1d',0])
-# res_list.append(['Nov 15 2021 Event','LISA_WWF_Nov_15_2021_2023_PopulationDefault_Network_HD.res1d',0])
-# master_list.append([model_area,model,result_folder,output_folder,res_list,joint_plot_header,groupby_acronym_owner])
+
+# output_folder = r'J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\MU_Classic_To_MIKE+_Sim_Compare\MIKEPLUS_2023_March_2023\Plots_Base'
+# result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\MU_Classic_To_MIKE+_Sim_Compare\MIKEPLUS_2023_March_2023\Model"
+# # res_list.append(['Classic','FSA_DWF_2021-07-22_3d_2020pop_Base.res1d','Dry Weather Flow, 2020pop'])
+# # res_list.append(['MIKE+','FSA_DWF_2021-07-22_3d_2020pop_BaseResult_file_8.res1d','Dry Weather Flow, 2020pop'])
+# res_list.append(['Classic','FSA_WWF_2021-11-12_5d_2020pop_Base.res1d','Nov 15 2021 Storm', '2020pop'])
+# res_list.append(['MIKE+','FSA_WWF_2021-11-12_5d_2020pop_BaseResult_file_5.res1d','Nov 15 2021 Storm', '2020pop'])
+
+# # output_folder = r'J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\MU_Classic_To_MIKE+_Sim_Compare\MIKEPLUS_2023_March_2023\Plots_BurnabyLake'
+# # result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\MU_Classic_To_MIKE+_Sim_Compare\MIKEPLUS_2023_March_2023\Model"
+# # result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\MU_Classic_To_MIKE+_Sim_Compare\MIKEPLUS_2023_March_2023\Model"
+# # res_list.append(['Classic','FSA_WWF_2100H-5yr-24hr-AES_2060pop_V_BurnabyLake.res1d','5yr 24h Design Storm, VFD, 2060pop'])
+# # res_list.append(['MIKE+','FSA_WWF_2100H-5yr-24hr-AES_2060pop_V_BurnabyLakeResult_file_5','5yr 24h Design Storm, VFD, 2060pop'])
+
+# master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner])
+
+# model_area = 'FSA'
+# groupby_acronym_owner = True
+# pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
+# # joint_plot_header = 'Design Storms'
+# model = 'FSA_Base_2020pop_V049.mdb'
+# output_folder = r'\\prdsynfile01\lws_modelling\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Hyetograph_Trial\Plots'
+# result_folder = r"\\prdsynfile01\lws_modelling\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Hyetograph_Trial\Model"
+# res_list = []
+
+# res_list.append(['NoCC, 2030pop, Standard','FSA_WWF_EX-5yr-24hr-AES_2030pop_BurnabyLake.res1d','5yr 24h Design Storm'])
+# res_list.append(['NoCC, 2030pop, Trial','FSA_WWF_Gauges-5yr-24hr-AES_2030pop_BurnabyLake.res1d','5yr 24h Design Storm'])
+
+# res_list.append(['2050H, 2060pop, Standard','FSA_WWF_2050H-5yr-24hr-AES_2060pop_BurnabyLake.res1d','5yr 24h Design Storm'])
+# res_list.append(['2050H, 2060pop, Trial','FSA_Gauges-2050H-5yr-24hr-AES_2060p_BurnabyLake.res1d','5yr 24h Design Storm'])
+
+# res_list.append(['2050H, 2060pop, VFD, Standard','FSA_WWF_2050H-5yr-24hr-AES_2060pop_V_BurnabyLake.res1d','5yr 24h Design Storm'])
+# res_list.append(['2050H, 2060pop, VFD, Trial','FSA_Gauges_2050H-5yr-24hr-AES_2060p_V_BurnabyLake.res1d','5yr 24h Design Storm'])
+
+# res_list.append(['2100H, 2060pop, Standard','FSA_WWF_2100H-5yr-24hr-AES_2060pop_BurnabyLake.res1d','5yr 24h Design Storm'])
+# res_list.append(['2100H, 2060pop, Trial','FSA_Gauges-2100H-5yr-24hr-AES_2060p_BurnabyLake.res1d','5yr 24h Design Storm'])
+
+# res_list.append(['2100H, 2060pop, VFD, Standard','FSA_WWF_2100H-5yr-24hr-AES_2060pop_V_BurnabyLake.res1d','5yr 24h Design Storm'])
+# res_list.append(['2100H, 2060pop, VFD, Trial','FSA_Gauges_2100H-5yr-24hr-AES_2060p_V_BurnabyLake.res1d','5yr 24h Design Storm'])
+
+# master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner])
 
 
 # model_area = 'FSA'
 # groupby_acronym_owner = True
-# joint_plot_header = 'Design Storms'
+# pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
+# # joint_plot_header = 'Design Storms'
 # model = 'FSA_Base_2020pop_V049.mdb'
-# output_folder = r'J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Allways_Latest_Master_Model_Simulations\Plots'
-# result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Allways_Latest_Master_Model_Simulations\Model"
+# output_folder = r'J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\System_Assessment\HTML_Plots_VFD'
+# result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\System_Assessment\FSA_System_Assessment"
 # res_list = []
-# res_list.append(['2yr 24h No Climate Change','FSA_WWF_EX-2yr-24hr-AES_2020pop_Base.res1d',1])
-# res_list.append(['5yr 24h No Climate Change','FSA_WWF_EX-5yr-24hr-AES_2020pop_Base.res1d',1])
-# res_list.append(['10yr 24h No Climate Change','FSA_WWF_EX-10yr-24hr-AES_2020pop_Base.res1d',1])
-# res_list.append(['Dry Weather Flow','FSA_DWF_2021-07-23_4d_2020pop_Base.res1d',0])
-# res_list.append(['Jan 31 2020 Event','FSA_WWF_2020-01-29_6d_2020pop_Base.res1d',0])
-# res_list.append(['Nov 15 2021 Event','FSA_WWF_2021-11-12_5d_2020pop_Base.res1d',0])
-# master_list.append([model_area,model,result_folder,output_folder,res_list,joint_plot_header,groupby_acronym_owner])
+
+# res_list.append(['2050H CC, 2060pop, VFD','FSA_WWF_2050H-5yr-24hr-AES_2060pop_V_BurnabyLake.res1d','5yr 24h Design Storm, VFD'])
+# res_list.append(['2100H CC, 2060pop, VFD','FSA_WWF_2100H-5yr-24hr-AES_2060pop_V_BurnabyLake.res1d','5yr 24h Design Storm, VFD'])
+
+# master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner,pipe_ls_exclusions])
+
+
+# model_area = 'FSA'
+# groupby_acronym_owner = True
+# pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
+# # joint_plot_header = 'Design Storms'
+# model = 'FSA_Base_2020pop_V049.mdb'
+# output_folder = r'J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\System_Assessment\HTML_Plots'
+# result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\System_Assessment\FSA_System_Assessment"
+# res_list = []
+# res_list.append(['3 * ADWF, 2020pop','FSA_3ADWF_2020pop_Base.res1d','Three Times ADWF'])
+# res_list.append(['3 * ADWF, 2030pop','FSA_3ADWF_2030pop_BurnabyLake.res1d','Three Times ADWF'])
+# res_list.append(['3 * ADWF, 2040pop','FSA_3ADWF_2040pop_BurnabyLake.res1d','Three Times ADWF'])
+# res_list.append(['3 * ADWF, 2050pop','FSA_3ADWF_2050pop_BurnabyLake.res1d','Three Times ADWF'])
+# res_list.append(['3 * ADWF, 2060pop','FSA_3ADWF_2060pop_BurnabyLake.res1d','Three Times ADWF'])
+# res_list.append(['DWF, 2020pop','FSA_DWF_2021-07-22_3d_2020pop_Base.res1d','Dry Weather Flow'])
+# res_list.append(['DWF, 2030pop','FSA_DWF_2021-07-22_3d_2030pop_BurnabyLake.res1d','Dry Weather Flow'])
+# res_list.append(['DWF, 2040pop','FSA_DWF_2021-07-22_3d_2040pop_BurnabyLake.res1d','Dry Weather Flow'])
+# res_list.append(['DWF, 2050pop','FSA_DWF_2021-07-22_3d_2050pop_BurnabyLake.res1d','Dry Weather Flow'])
+# res_list.append(['DWF, 2060pop','FSA_DWF_2021-07-22_3d_2060pop_BurnabyLake.res1d','Dry Weather Flow'])
+# res_list.append(['Nov 15 2021, 2020pop','FSA_WWF_2021-11-12_5d_2020pop_Base.res1d','Nov 15 2021 Storm'])
+# res_list.append(['Nov 15 2021, 2030pop','FSA_WWF_2021-11-12_5d_2030pop_BurnabyLake.res1d','Nov 15 2021 Storm'])
+# res_list.append(['Nov 15 2021, 2040pop','FSA_WWF_2021-11-12_5d_2040pop_BurnabyLake.res1d','Nov 15 2021 Storm'])
+# res_list.append(['Nov 15 2021, 2050pop','FSA_WWF_2021-11-12_5d_2050pop_BurnabyLake.res1d','Nov 15 2021 Storm'])
+# res_list.append(['Nov 15 2021, 2060pop','FSA_WWF_2021-11-12_5d_2060pop_BurnabyLake.res1d','Nov 15 2021 Storm'])
+# res_list.append(['2yr 24h NoCC , 2020pop','FSA_WWF_EX-2yr-24hr-AES_2020pop_Base.res1d','2yr 24h Design Storm'])
+# res_list.append(['2yr 24h NoCC , 2030pop','FSA_WWF_EX-2yr-24hr-AES_2030pop_BurnabyLake.res1d','2yr 24h Design Storm'])
+# res_list.append(['2yr 24h 2050H, 2040pop','FSA_WWF_2050H-2yr-24hr-AES_2040pop_BurnabyLake.res1d','2yr 24h Design Storm'])
+# res_list.append(['2yr 24h 2050H, 2050pop','FSA_WWF_2050H-2yr-24hr-AES_2050pop_BurnabyLake.res1d','2yr 24h Design Storm'])
+# res_list.append(['2yr 24h 2100H, 2060pop','FSA_WWF_2100H-2yr-24hr-AES_2060pop_BurnabyLake.res1d','2yr 24h Design Storm'])
+# res_list.append(['5yr 24h NoCC, 2020pop','FSA_WWF_EX-5yr-24hr-AES_2020pop_Base.res1d','5yr 24h Design Storm'])
+# res_list.append(['5yr 24h NoCC, 2030pop','FSA_WWF_EX-5yr-24hr-AES_2030pop_BurnabyLake.res1d','5yr 24h Design Storm'])
+# res_list.append(['5yr 24h 2050H, 2040pop','FSA_WWF_2050H-5yr-24hr-AES_2040pop_BurnabyLake.res1d','5yr 24h Design Storm'])
+# res_list.append(['5yr 24h 2050H, 2050pop','FSA_WWF_2050H-5yr-24hr-AES_2050pop_BurnabyLake.res1d','5yr 24h Design Storm'])
+# res_list.append(['5yr 24h 2100H, 2060pop','FSA_WWF_2100H-5yr-24hr-AES_2060pop_BurnabyLake.res1d','5yr 24h Design Storm'])
+# res_list.append(['10yr 24h NoCC, 2020pop','FSA_WWF_EX-10yr-24hr-AES_2020pop_Base.res1d','10yr 24h Design Storm'])
+# res_list.append(['10yr 24h NoCC, 2030pop','FSA_WWF_EX-10yr-24hr-AES_2030pop_BurnabyLake.res1d','10yr 24h Design Storm'])
+# res_list.append(['10yr 24h 2050H, 2040pop','FSA_WWF_2050H-10yr-24hr-AES_2040pop_BurnabyLake.res1d','10yr 24h Design Storm'])
+# res_list.append(['10yr 24h 2050H, 2050pop','FSA_WWF_2050H-10yr-24hr-AES_2050pop_BurnabyLake.res1d','10yr 24h Design Storm'])
+# res_list.append(['10yr 24h 2100H, 2060pop','FSA_WWF_2100H-10yr-24hr-AES_2060pop_BurnabyLake.res1d','10yr 24h Design Storm'])
+# master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner,pipe_ls_exclusions])
+
+model_area = 'LISA'
+groupby_acronym_owner = False
+pipe_ls_exclusions = []
+joint_plot_header = 'Design Storms'
+model = 'Lisa_Base.sqlite'
+output_folder = r'J:\SEWER_AREA_MODELS\LISA\04_ANALYSIS_WORK\System_Assessment\Design Storms (2022 Population)\Plots'
+result_folder = r"J:\SEWER_AREA_MODELS\LISA\04_ANALYSIS_WORK\System_Assessment\Design Storms (2022 Population)\Results"
+res_list = []
+res_list.append(['2yr 24h No Climate Change','LISA_WWF_EX-2yr-24hr-SCS_2023_PopulationDefault_Network_HD.res1d','Design Storms'])
+res_list.append(['5yr 24h No Climate Change','LISA_WWF_EX-5yr-24hr-SCS_2023_PopulationDefault_Network_HD.res1d','Design Storms'])
+res_list.append(['10yr 24h No Climate Change','LISA_WWF_EX-10yr-24hr-SCS_2023_PopulationDefault_Network_HD.res1d','Design Storms'])
+res_list.append(['25yr 24h No Climate Change','LISA_WWF_EX-25yr-24hr-SCS_2023_PopulationDefault_Network_HD.res1d','Design Storms'])
+res_list.append(['50yr 24h No Climate Change','LISA_WWF_EX-50yr-24hr-SCS_2023_PopulationDefault_Network_HD.res1d','Design Storms'])
+res_list.append(['100yr 24h No Climate Change','LISA_WWF_EX-100yr-24hr-SCS_2023_PopulationDefault_Network_HD.res1d','Design Storms'])
+res_list.append(['200yr 24h No Climate Change','LISA_WWF_EX-200yr-24hr-SCS_2023_PopulationDefault_Network_HD.res1d','Design Storms'])
+res_list.append(['Dry Weather Flow','DWF_2023_PopulationNetwork_HD.res1d','Dry Weather Flow'])
+res_list.append(['Basic Service Flow','Lisa_BSF_11p2k_2023_Population.res1d','Basic Service Flow'])
+res_list.append(['Nov 15 2021 Event','LISA_WWF_Nov_15_2021_2023_PopulationDefault_Network_HD.res1d','Nov 15 2021 Event'])
+master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner,pipe_ls_exclusions])
+
+
+# model_area = 'FSA'
+# groupby_acronym_owner = True
+# pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
+# model = 'FSA_Base_V051_2020pop.mdb'
+# output_folder = r'J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Always_Latest_Master_Model_Simulations_FSA\HTML_Plots'
+# result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Always_Latest_Master_Model_Simulations_FSA\Model"
+# res_list = []
+# res_list.append(['2yr 24h No Climate Change','FSA_WWF_EX-2yr-24hr-AES_2020pop_Base.res1d','Design Storms'])
+# res_list.append(['5yr 24h No Climate Change','FSA_WWF_EX-5yr-24hr-AES_2020pop_Base.res1d','Design Storms'])
+# res_list.append(['10yr 24h No Climate Change','FSA_WWF_EX-10yr-24hr-AES_2020pop_Base.res1d','Design Storms'])
+# res_list.append(['Dry Weather Flow','FSA_DWF_2021-07-23_4d_2020pop_Base.res1d','Dry Weather Flow'])
+# res_list.append(['Jan 31 2020 Event','FSA_WWF_2020-01-29_6d_2020pop_Base.res1d','Jan 31 2020 Event'])
+# res_list.append(['Nov 15 2021 Event','FSA_WWF_2021-11-12_5d_2020pop_Base.res1d','Nov 15 2021 Event'])
+# master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner,pipe_ls_exclusions])
 
 
 # model_area = 'VSA'
@@ -110,7 +172,7 @@ master_list.append([model_area,model,result_folder,output_folder,res_list,groupb
 # res_list.append(['Nov 25 2018 Event','NSSA_WWF_2018-11-25_3d_2018pop_Base.res1d',0])
 # res_list.append(['Jan 31 2020 Event','NSSA_WWF_2020-01-29_6d_2018pop_Base.res1d',0])
 # res_list.append(['Nov 15 2021 Event','NSSA_WWF_2021-11-12_5d_2018pop_Base.res1d',0])
-# master_list.append([model_area,model,result_folder,output_folder,res_list,joint_plot_header,groupby_acronym_owner])
+# master_list.append([model_area,model,result_folder,output_folder,res_list,joint_plot_header,groupby_acronym_owner,pipe_ls_exclusions])
 
 # model_area = 'NSSA' # For X ADWF
 # model = 'NSSA_Base_2018pop_V062_3xADWF.mdb'
@@ -124,7 +186,7 @@ master_list.append([model_area,model,result_folder,output_folder,res_list,groupb
 # res_list.append(['3.5 times ADWF','NSSA_3p5ADWF_2018pop_Base.res1d',1])
 # res_list.append(['4 times ADWF','NSSA_4ADWF_2018pop_Base.res1d',1])
 # res_list.append(['5 times ADWF','NSSA_5ADWF_2018pop_Base.res1d',1])
-# master_list.append([model_area,model,result_folder,output_folder,res_list,joint_plot_header,groupby_acronym_owner])
+# master_list.append([model_area,model,result_folder,output_folder,res_list,joint_plot_header,groupby_acronym_owner,pipe_ls_exclusions])
 
 # model_area = 'NSSA' # For X ADWF
 # model = 'NSSA_Base_2018pop_V062_3xADWF.mdb'
@@ -138,4 +200,4 @@ master_list.append([model_area,model,result_folder,output_folder,res_list,groupb
 # res_list.append(['3.5 times ADWF','NSSA_3p5ADWF_2018pop_V_Base.res1d',1])
 # res_list.append(['4 times ADWF','NSSA_4ADWF_2018pop_V_Base.res1d',1])
 # res_list.append(['5 times ADWF','NSSA_5ADWF_2018pop_V_Base.res1d',1])
-# master_list.append([model_area,model,result_folder,output_folder,res_list,joint_plot_header,groupby_acronym_owner])
+# master_list.append([model_area,model,result_folder,output_folder,res_list,joint_plot_header,groupby_acronym_owner,pipe_ls_exclusions])
