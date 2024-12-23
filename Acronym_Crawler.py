@@ -76,9 +76,9 @@ def main(working_folder,mu_path):
     extension = os.path.splitext(mu_path)[1].lower()
 
     if extension == ".mdb":
-        sql = "SELECT MUID, Acronym, CrsID, IIf(TypeNo=1,Diameter,IIf(TypeNo=3,Height,0)) AS Pipe_Height, IIF(Length IS Null, SHAPE_Length, Length) AS Pipe_Length, UpLevel, DwLevel, FROMNODE, TONODE FROM msm_Link WHERE Owner = 'GV' AND Acronym <> ''"
+        sql = "SELECT MUID, Acronym, TypeNo CrsID, IIf(TypeNo=1,Diameter,IIf(TypeNo=3,Height,0)) AS Pipe_Height, IIF(Length IS Null, SHAPE_Length, Length) AS Pipe_Length, UpLevel, DwLevel, FROMNODE, TONODE FROM msm_Link WHERE Owner = 'GV' AND Acronym <> ''"
     else:
-        sql = "SELECT MUID, Acronym, '' as CrsID, CASE TypeNo WHEN 1 THEN Diameter WHEN 3 THEN Height ELSE 0 END AS Pipe_Height, SHAPE_Length AS Pipe_Length, UpLevel, DwLevel, FROMNODEID, TONODEID FROM msm_Link "
+        sql = "SELECT MUID, Acronym, TypeNo, CrsID, CASE TypeNo WHEN 1 THEN Diameter WHEN 3 THEN Height ELSE 0 END AS Pipe_Height, SHAPE_Length AS Pipe_Length, UpLevel, DwLevel, FROMNODEID, TONODEID FROM msm_Link "
         sql += "WHERE Owner = 'GV' AND Acronym <> '' AND Active = 1"
     lines = readQuery(sql,mu_path)
 
@@ -86,9 +86,9 @@ def main(working_folder,mu_path):
 
 
     if extension == ".mdb":
-        sql = "SELECT MUID, Acronym, '' as CrsID, IIf(TypeNo=1,Diameter,IIf(TypeNo=3,Height,0)) AS Pipe_Height, SHAPE_Length AS Pipe_Length, InvertLevel AS UpLevel, InvertLevel AS DwLevel, FROMNODE, TONODE FROM msm_Orifice WHERE Acronym <> ''"
+        sql = "SELECT MUID, Acronym, TypeNo, '' as CrsID, IIf(TypeNo=1,Diameter,IIf(TypeNo=3,Height,0)) AS Pipe_Height, SHAPE_Length AS Pipe_Length, InvertLevel AS UpLevel, InvertLevel AS DwLevel, FROMNODE, TONODE FROM msm_Orifice WHERE Acronym <> ''"
     else:
-        sql = "SELECT MUID, Acronym, '' as CrsID, CASE TypeNo WHEN 1 THEN Diameter WHEN 3 THEN Height ELSE 0 END AS Pipe_Height, 1 AS Pipe_Length, InvertLevel AS UpLevel, InvertLevel AS DwLevel, FROMNODEID, TONODEID FROM msm_Orifice "
+        sql = "SELECT MUID, Acronym, TypeNo, '' as CrsID, CASE TypeNo WHEN 1 THEN Diameter WHEN 3 THEN Height ELSE 0 END AS Pipe_Height, 1 AS Pipe_Length, InvertLevel AS UpLevel, InvertLevel AS DwLevel, FROMNODEID, TONODEID FROM msm_Orifice "
         sql += "WHERE Acronym <> '' AND Active = 1"
     orifices = readQuery(sql,mu_path)
     lines += orifices
@@ -110,8 +110,9 @@ def main(working_folder,mu_path):
     nodes_df = pd.DataFrame(nodes, columns =['Node', 'Asset Name', 'Cover Type', 'Network Type', 'Ground Level', 'Invert Level', 'Safe Operating Head'])
     nodes_df.to_csv(working_folder + "\\ls_nodes.csv", index = False)
 
-    lines_df = pd.DataFrame(lines, columns =['Pipe', 'Acronym', 'CRS', 'Height', 'Length', 'UpLevel', 'DwLevel', 'FromNode', 'ToNode'])
+    lines_df = pd.DataFrame(lines, columns =['Pipe', 'Acronym', 'TypeNo', 'CRS', 'Height', 'Length', 'UpLevel', 'DwLevel', 'FromNode', 'ToNode'])
     lines_df = pd.merge(lines_df,crs_df,on=['CRS'],how='left')
+    lines_df.loc[lines_df['TypeNo'] == 2, 'Height'] = lines_df['CRS_Height']
     lines_df.to_csv(working_folder + "\\ls_pipes.csv", index = False)
 
 ##end_timer = datetime.datetime.now()

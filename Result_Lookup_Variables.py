@@ -10,15 +10,214 @@ master_list = []
 wwtp_pipe = ''
 outfall_summary = ''
 mus_path = ''
+custom_plot_dict = {}
 delay_hours = 0 #Only for the timeconsuming result lookup script, used if the sims are done after hours, to run the tool afterwards.
 python_installation = r"C:\Python27\ArcGIS10.7\python.exe"
 
-# #FSA always latest
+##AFTER UPDATE AND SAVE YOU MUST RESTART THE KERNEL IN JUPYTER NOTEBOOK TO UPDATE VARIABLES!
+
+
+#FSA BSF Sealed VFD Phase 1
+
+model_area = 'FSA'
+
+wwtp_pipe = '52458'
+groupby_acronym_owner = True
+pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
+model = 'FSA_2050pop_V187_BSF_14k_Sealed_VFD.sqlite' #Trace longitudinal section; can be any model in the model folder.
+output_folder = r'J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\X_Times_BSF\EFLSP_Modelling\Phase_0\HTML_Plots_V187_Ann0p8_0p3cms' #create this folder and include the file "Maps_and_CSS" to the empty folder
+result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\X_Times_BSF\EFLSP_Modelling\Phase_0\Model_V187_Ann0p8_0p3cms" #model folder input
+outfall_summary = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Calibration_2022\WWF_Calibration_Reports\FSA_Calibration_Specs\Outfall_Summary_No_Recapture.csv"
+
+element_filter = []
+res_list = []
+
+res_list.append(['1.5 I/I, 2030 Pop','FSA_BSF_16p8k_2030pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.4 I/I, 2035 Pop','FSA_BSF_15p68k_2035pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.35 I/I, 2040 Pop','FSA_BSF_15p12k_2040pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.3 I/I, 2045 Pop','FSA_BSF_14p56k_2045pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.25 I/I, 2050 Pop','FSA_BSF_14k_2050pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.15 I/I, 2060 Pop','FSA_BSF_12p88k_2060pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.0 I/I, 2075 Pop','FSA_BSF_11p2k_2075pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.0 I/I, 2090 Pop','FSA_BSF_11p2k_2090pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.0 I/I, 2100 Pop','FSA_BSF_11p2k_2100pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+
+master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner,pipe_ls_exclusions,element_filter,name_shortenings,wwtp_pipe,outfall_summary,mus_path])
+
+model_area = 'FSA'
+
+wwtp_pipe = '52458'
+groupby_acronym_owner = True
+pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
+model = 'FSA_2050pop_V187_BSF_14k_Sealed_VFD.sqlite' #Trace longitudinal section; can be any model in the model folder.
+output_folder = r'J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\X_Times_BSF\EFLSP_Modelling\Phase_1\HTML_V187_Ann0p8_UpsNSIRX(A)_0p3cms' #create this folder and include the file "Maps_and_CSS" to the empty folder
+result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\X_Times_BSF\EFLSP_Modelling\Phase_1\Model_V187_Ann0p8_UpsNSIRX1p2m(A)_0p3cms" #model folder input
+outfall_summary = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Calibration_2022\WWF_Calibration_Reports\FSA_Calibration_Specs\Outfall_Summary_No_Recapture.csv"
+
+element_filter = []
+res_list = []
+res_list.append(['1.5 I/I, 2030 Pop','FSA_BSF_16p8k_2030pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.4 I/I, 2035 Pop','FSA_BSF_15p68k_2035pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.35 I/I, 2040 Pop','FSA_BSF_15p12k_2040pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.3 I/I, 2045 Pop','FSA_BSF_14p56k_2045pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.25 I/I, 2050 Pop','FSA_BSF_14k_2050pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.15 I/I, 2060 Pop','FSA_BSF_12p88k_2060pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.0 I/I, 2075 Pop','FSA_BSF_11p2k_2075pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.0 I/I, 2090 Pop','FSA_BSF_11p2k_2090pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.0 I/I, 2100 Pop','FSA_BSF_11p2k_2100pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+
+master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner,pipe_ls_exclusions,element_filter,name_shortenings,wwtp_pipe,outfall_summary,mus_path])
+
+
+model_area = 'FSA'
+
+wwtp_pipe = '52458'
+groupby_acronym_owner = True
+pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
+model = 'FSA_2050pop_V187_BSF_14k_Sealed_VFD.sqlite' #Trace longitudinal section; can be any model in the model folder.
+output_folder = r'J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\X_Times_BSF\EFLSP_Modelling\Phase_1\HTML_V187_Ann0p8_UpsNSIRX2m(B)_0p3cms' #create this folder and include the file "Maps_and_CSS" to the empty folder
+result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\X_Times_BSF\EFLSP_Modelling\Phase_1\Model_V187_Ann0p8_UpsNSIRX2m(B)_0p3cms" #model folder input
+outfall_summary = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Calibration_2022\WWF_Calibration_Reports\FSA_Calibration_Specs\Outfall_Summary_No_Recapture.csv"
+
+element_filter = []
+res_list = []
+res_list.append(['1.5 I/I, 2030 Pop','FSA_BSF_16p8k_2030pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.4 I/I, 2035 Pop','FSA_BSF_15p68k_2035pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.35 I/I, 2040 Pop','FSA_BSF_15p12k_2040pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.3 I/I, 2045 Pop','FSA_BSF_14p56k_2045pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.25 I/I, 2050 Pop','FSA_BSF_14k_2050pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.15 I/I, 2060 Pop','FSA_BSF_12p88k_2060pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.0 I/I, 2075 Pop','FSA_BSF_11p2k_2075pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.0 I/I, 2090 Pop','FSA_BSF_11p2k_2090pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.0 I/I, 2100 Pop','FSA_BSF_11p2k_2100pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+
+master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner,pipe_ls_exclusions,element_filter,name_shortenings,wwtp_pipe,outfall_summary,mus_path])
+
+
+
+model_area = 'FSA'
+
+wwtp_pipe = '52458'
+groupby_acronym_owner = True
+pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
+model = 'FSA_2050pop_V187_BSF_14k_Sealed_VFD.sqlite' #Trace longitudinal section; can be any model in the model folder.
+output_folder = r'J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\X_Times_BSF\EFLSP_Modelling\Phase_1\HTML_V187_Ann0p8_UpsNSR(C)_0p3cms' #create this folder and include the file "Maps_and_CSS" to the empty folder
+result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\X_Times_BSF\EFLSP_Modelling\Phase_1\Model_V187_Ann0p8_UpsNSR(C)_0p3cms" #model folder input
+outfall_summary = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Calibration_2022\WWF_Calibration_Reports\FSA_Calibration_Specs\Outfall_Summary_No_Recapture.csv"
+
+element_filter = []
+res_list = []
+res_list.append(['1.5 I/I, 2030 Pop','FSA_BSF_16p8k_2030pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.4 I/I, 2035 Pop','FSA_BSF_15p68k_2035pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.35 I/I, 2040 Pop','FSA_BSF_15p12k_2040pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.3 I/I, 2045 Pop','FSA_BSF_14p56k_2045pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.25 I/I, 2050 Pop','FSA_BSF_14k_2050pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.15 I/I, 2060 Pop','FSA_BSF_12p88k_2060pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.0 I/I, 2075 Pop','FSA_BSF_11p2k_2075pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.0 I/I, 2090 Pop','FSA_BSF_11p2k_2090pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+res_list.append(['1.0 I/I, 2100 Pop','FSA_BSF_11p2k_2100pop_S_V_2030_NetworkDefault_Network_HD.res1d','I/I'])
+
+master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner,pipe_ls_exclusions,element_filter,name_shortenings,wwtp_pipe,outfall_summary,mus_path])
+
+
+
+# # #
+
+# #FSA BSF Sealed VFD Phase 0
+# model_area = 'FSA'
+
+# wwtp_pipe = '52458'
+# groupby_acronym_owner = True
+# pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
+# model = 'FSA_2050pop_V185_BSF_14k_Sealed_VFD.sqlite' #Trace longitudinal section; can be any model in the model folder.
+# output_folder = r'J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\X_Times_BSF\EFLSP_Modelling\Phase_0\HTML_Plots_V185_Ann0p8_0p3cms' #create this folder and include the file "Maps_and_CSS" to the empty folder
+# result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\X_Times_BSF\EFLSP_Modelling\Phase_0\Model_V185_Ann0p8_0p3cms" #model folder input
+# outfall_summary = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Calibration_2022\WWF_Calibration_Reports\FSA_Calibration_Specs\Outfall_Summary_No_Recapture.csv"
+
+# element_filter = []
+# res_list = []
+# res_list.append(['1.25 I/I, 2050 Pop','FSA_BSF_14k_2050pop_S_V_2030_NetworkDefault_Network_HD.res1d','1.25 * I/I'])
+# # res_list.append(['1.2 I/I, 2055 Pop','FSA_BSF_13p44k_2055pop_S_V_2030_NetworkDefault_Network_HD.res1d','1.2 * I/I'])
+
+
+# # res_list.append(['1.15 I/I, 2060 Pop','FSA_BSF_14k_2050pop_S_V_2030_NetworkDefault_Network_HD.res1d','1.15 * I/I']) #WRONG, Test Only!!!
+# res_list.append(['1.15 I/I, 2060 Pop','FSA_BSF_12p88k_2060pop_S_V_2030_NetworkDefault_Network_HD.res1d','1.15 * I/I'])
+
+# # res_list.append(['1.1 I/I, 2065 Pop','FSA_BSF_12p32k_2065pop_S_V_2030_NetworkDefault_Network_HD.res1d','1.1 * I/I'])
+# # res_list.append(['1.05 I/I, 2070 Pop','FSA_BSF_11p76k_2070pop_S_V_2030_NetworkDefault_Network_HD.res1d','1.05 * I/I'])
+# res_list.append(['1.0 I/I, 2075 Pop','FSA_BSF_11p2k_2075pop_S_V_2030_NetworkDefault_Network_HD.res1d','1.0 * I/I'])
+# res_list.append(['1.0 I/I, 2090 Pop','FSA_BSF_11p2k_2090pop_S_V_2030_NetworkDefault_Network_HD.res1d','1.0 * I/I'])
+# res_list.append(['1.0 I/I, 2100 Pop','FSA_BSF_11p2k_2100pop_S_V_2030_NetworkDefault_Network_HD.res1d','1.0 * I/I'])
+
+
+
+# master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner,pipe_ls_exclusions,element_filter,name_shortenings,wwtp_pipe,outfall_summary,mus_path])
+
+# # # #
+
+##########################################################################################
+
+
+# #VSA
+# model_area = 'VSA'
+# wwtp_pipe = '48708A'
+# groupby_acronym_owner = True
+# pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
+# model = 'VSA_2024pop_v307_cut_BSF_11p2k.sqlite'
+# output_folder = r'J:\SEWER_AREA_MODELS\VSA\04_ANALYSIS_WORK\86. Copley San Sewer Assessment\HTML'
+# result_folder = r"J:\SEWER_AREA_MODELS\VSA\04_ANALYSIS_WORK\86. Copley San Sewer Assessment\Model2"
+# outfall_summary = r"J:\SEWER_AREA_MODELS\VSA\04_ANALYSIS_WORK\86. Copley San Sewer Assessment\Model2\Outfall_Summary_empty.csv"
+# element_filter = []
+# res_list = []
+
+# # res_list.append(['2yr 24h NoCC, 2030 Pop','FSA_GA_EX-2y-24h-AES_2030p_F_2030_Network-DSS4Default_Network_HD.res1d','Design Storms'])
+# # res_list.append(['5yr 24h NoCC, 2030 Pop','FSA_GA_EX-5y-24h-AES_2030p_F_2030_Network-DSS5Default_Network_HD.res1d','Design Storms'])
+# # res_list.append(['10yr 24h NoCC, 2030 Pop','FSA_GA_EX-10y-24h-AES_2030p_F_2030_Network-DSS6Default_Network_HD.res1d','Design Storms'])
+# # res_list.append(['5yr 24h 2100H, 2076/2100 Pop','FSA_GA_2100H-5y-24h-AES_2076p_PM2100p_F_2030_Network-DSS14Default_Network_HD.res1d','Design Storms'])
+
+# res_list.append(['1.0 I/I, 2024 Pop','VSA_BSF_11p2k_2024pop_BaseDefault_Network_HD.res1d','I/I'])
+# res_list.append(['1.5 I/I, 2024 Pop','VSA_BSF_16p8k_2024pop_BaseDefault_Network_HD.res1d','I/I'])
+
+# master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner,pipe_ls_exclusions,element_filter,name_shortenings,wwtp_pipe,outfall_summary,mus_path])
+
+
+# #FSA annacis
 # model_area = 'FSA'
 # wwtp_pipe = '52458'
 # groupby_acronym_owner = True
 # pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
-# model = 'FSA_Base_2021pop_V170.sqlite'
+# model = 'FSA_Base_2021pop_V181.sqlite'
+# output_folder = r'J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Westridge_PS_RTC\HTML_Plots'
+# result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Westridge_PS_RTC\Model"
+# # outfall_summary = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Calibration_2022\WWF_Calibration_Reports\FSA_Calibration_Specs\Outfall_Summary_No_Recapture.csv"
+# outfall_summary = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Annacis_2019-2024\Model\Outfall_Summary_No_Recapture_Incl_SSJ_MH13.csv"
+
+# custom_plot_dict = {}
+# custom_plot_dict['specs'] = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Westridge_PS_RTC\Model\Custom_Plots.csv"
+# custom_plot_dict['file_name_no_extension'] ='Westridge'
+# custom_plot_dict['plot_title'] = 'Westridge'
+# custom_plot_dict['axis1_title'] = 'Discharge (L/s)'
+# custom_plot_dict['axis2_title'] = 'HGL (m)'
+
+# custom_plot_dict['discharge_multiplier'] = 1000
+
+# # mus_path = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Annacis_2019-2024\Model\Result_Lookup_Filter.mus"
+
+# element_filter = []
+# res_list = []
+# res_list.append(['25yr 24h No Climate Change','FSA_GA_EX-25y-24h-AES_2021p_Base-DSS16One_Second.res1d','Design Storms'])
+# master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner,pipe_ls_exclusions,element_filter,name_shortenings,wwtp_pipe,outfall_summary,mus_path,custom_plot_dict])
+
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+# #FSA always latest
+# model_area = 'FSA'
+# wwtp_pipe = '52458'
+# delay_hours = 0
+# groupby_acronym_owner = True
+# pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
+# model = 'FSA_Base_2021pop_V185.sqlite'
 # output_folder = r'J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Always_Latest_Master_Model_Simulations_FSA\HTML_Plots'
 # result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Always_Latest_Master_Model_Simulations_FSA\Model"
 # outfall_summary = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Calibration_2022\WWF_Calibration_Reports\FSA_Calibration_Specs\Outfall_Summary_No_Recapture.csv"
@@ -36,55 +235,33 @@ python_installation = r"C:\Python27\ArcGIS10.7\python.exe"
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-# #FSA New West Balance
+
+# #FSA misc
 # model_area = 'FSA'
 # wwtp_pipe = '52458'
 # groupby_acronym_owner = True
 # pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
-# model = 'FSA_2023pop_V157.sqlite'
-# output_folder = r'J:\SEWER_AREA_MODELS\FSA\04_ANALYSIS_WORK\New_West_Captured\HTML_Plots'
-# result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\LTS\Model_2023-4"
-# outfall_summary = r"J:\SEWER_AREA_MODELS\FSA\04_ANALYSIS_WORK\New_West_Captured\Outfall_Summary_NewWestOnly.csv"
-# # mus_path = r"J:\SEWER_AREA_MODELS\FSA\04_ANALYSIS_WORK\BLNI2_In_Line_Storage\HTML_GATE_SPLIT_SAPP4p5\Maps_And_CSS\Selections.mus"
+# model = 'FSA_2030pop_V147_Joshua_Info.sqlite'
+# output_folder = r'\\prdsynfile01\lws_modelling\SEWER_AREA_MODELS\FSA\04_ANALYSIS_WORK\REQUESTS\Joshua Redmond_ SYC2_HGL Modelling\HTML_Plots'
+# result_folder = r"\\prdsynfile01\lws_modelling\SEWER_AREA_MODELS\FSA\04_ANALYSIS_WORK\REQUESTS\Joshua Redmond_ SYC2_HGL Modelling\Model_Joshua"
+# outfall_summary = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Calibration_2022\WWF_Calibration_Reports\FSA_Calibration_Specs\Outfall_Summary_No_Recapture.csv"
+# mus_path = r"\\prdsynfile01\lws_modelling\SEWER_AREA_MODELS\FSA\04_ANALYSIS_WORK\REQUESTS\Joshua Redmond_ SYC2_HGL Modelling\Model_Joshua\Stoney_Creek_Elements_Joint.mus"
 # element_filter = []
 # res_list = []
 
-# res_list.append(['July 1 2023 - July 1 2024','FSA_WWF_2023-07-01_366d_2023pop_BaseDefault_Network_HD.res1d','LTS'])
-# res_list.append(['July 1 2022 - July 1 2023','FSA_WWF_2022-07-01_365d_2023pop_Base.res1d','LTS'])
-# res_list.append(['Jan 1 2021 - Jan 1 2022','FSA_WWF_2021-01-01_365d_2021pop_NewSapp_Base.res1d','LTS'])
+# res_list.append(['10yr 24h No Climate Change, Base','FSA_GA_EX-10y-24h-AES_2030p_Base-DSS19Default_Network_HD.res1d','Design Storms'])
+# res_list.append(['10yr 24h No Climate Change, 250 mm','FSA_GA_EX-10y-24h-AES_2030p_250mm_Base-DSS17Default_Network_HD.res1d','Design Storms'])
+# res_list.append(['10yr 24h No Climate Change, 550 mm','FSA_GA_EX-10y-24h-AES_2030p_550mm_Base-DSS17Default_Network_HD.res1d','Design Storms'])
 
+# res_list.append(['Jan 31 2020 Event, Base','FSA_WWF_2020-01-29_6d_2030pop_BaseDefault_Network_HD.res1d','Jan 31 2020 Event'])
+# res_list.append(['Jan 31 2020 Event, 250 mm','FSA_WWF_2020-01-29_6d_2030pop_250mm_BaseDefault_Network_HD.res1d','Jan 31 2020 Event'])
+# res_list.append(['Jan 31 2020 Event, 550 mm','FSA_WWF_2020-01-29_6d_2030pop_550mm_BaseDefault_Network_HD.res1d','Jan 31 2020 Event'])
+
+# res_list.append(['Nov 15 2021 Event, Base','FSA_WWF_2021-11-12_5d_2030pop_BaseDefault_Network_HD.res1d','Nov 15 2021 Event'])
+# res_list.append(['Nov 15 2021 Event, 250 mm','FSA_WWF_2021-11-12_5d_2030pop_250mm_BaseDefault_Network_HD.res1d','Nov 15 2021 Event'])
+# res_list.append(['Nov 15 2021 Event, 550 mm','FSA_WWF_2021-11-12_5d_2030pop_550mm_BaseDefault_Network_HD.res1d','Nov 15 2021 Event'])
 
 # master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner,pipe_ls_exclusions,element_filter,name_shortenings,wwtp_pipe,outfall_summary,mus_path])
-
-
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-#FSA misc
-model_area = 'FSA'
-wwtp_pipe = '52458'
-groupby_acronym_owner = True
-pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
-model = 'FSA_2030pop_V147_Joshua_Info.sqlite'
-output_folder = r'\\prdsynfile01\lws_modelling\SEWER_AREA_MODELS\FSA\04_ANALYSIS_WORK\REQUESTS\Joshua Redmond_ SYC2_HGL Modelling\HTML_Plots'
-result_folder = r"\\prdsynfile01\lws_modelling\SEWER_AREA_MODELS\FSA\04_ANALYSIS_WORK\REQUESTS\Joshua Redmond_ SYC2_HGL Modelling\Model_Joshua"
-outfall_summary = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Calibration_2022\WWF_Calibration_Reports\FSA_Calibration_Specs\Outfall_Summary_No_Recapture.csv"
-mus_path = r"\\prdsynfile01\lws_modelling\SEWER_AREA_MODELS\FSA\04_ANALYSIS_WORK\REQUESTS\Joshua Redmond_ SYC2_HGL Modelling\Model_Joshua\Stoney_Creek_Elements_Joint.mus"
-element_filter = []
-res_list = []
-
-res_list.append(['10yr 24h No Climate Change, Base','FSA_GA_EX-10y-24h-AES_2030p_Base-DSS19Default_Network_HD.res1d','Design Storms'])
-res_list.append(['10yr 24h No Climate Change, 250 mm','FSA_GA_EX-10y-24h-AES_2030p_250mm_Base-DSS17Default_Network_HD.res1d','Design Storms'])
-res_list.append(['10yr 24h No Climate Change, 550 mm','FSA_GA_EX-10y-24h-AES_2030p_550mm_Base-DSS17Default_Network_HD.res1d','Design Storms'])
-
-res_list.append(['Jan 31 2020 Event, Base','FSA_WWF_2020-01-29_6d_2030pop_BaseDefault_Network_HD.res1d','Jan 31 2020 Event'])
-res_list.append(['Jan 31 2020 Event, 250 mm','FSA_WWF_2020-01-29_6d_2030pop_250mm_BaseDefault_Network_HD.res1d','Jan 31 2020 Event'])
-res_list.append(['Jan 31 2020 Event, 550 mm','FSA_WWF_2020-01-29_6d_2030pop_550mm_BaseDefault_Network_HD.res1d','Jan 31 2020 Event'])
-
-res_list.append(['Nov 15 2021 Event, Base','FSA_WWF_2021-11-12_5d_2030pop_BaseDefault_Network_HD.res1d','Nov 15 2021 Event'])
-res_list.append(['Nov 15 2021 Event, 250 mm','FSA_WWF_2021-11-12_5d_2030pop_250mm_BaseDefault_Network_HD.res1d','Nov 15 2021 Event'])
-res_list.append(['Nov 15 2021 Event, 550 mm','FSA_WWF_2021-11-12_5d_2030pop_550mm_BaseDefault_Network_HD.res1d','Nov 15 2021 Event'])
-
-master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner,pipe_ls_exclusions,element_filter,name_shortenings,wwtp_pipe,outfall_summary,mus_path])
 
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -119,14 +296,12 @@ master_list.append([model_area,model,result_folder,output_folder,res_list,groupb
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
-
-
 # #FSA Key Flows HGL
 # model_area = 'FSA'
 # wwtp_pipe = '52458'
 # groupby_acronym_owner = True
 # pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
-# model = 'FSA_2025pop_V164.sqlite'
+# model = 'FSA_2025pop_V183.sqlite'
 # output_folder = r'J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Key_Flow_HGL_GIS_Sim_FSA\HTML_Plots'
 # result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Key_Flow_HGL_GIS_Sim_FSA\Model"
 # outfall_summary = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Calibration_2022\WWF_Calibration_Reports\FSA_Calibration_Specs\Outfall_Summary_No_Recapture.csv"
@@ -208,48 +383,6 @@ master_list.append([model_area,model,result_folder,output_folder,res_list,groupb
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
-
-# # #FSA BSF Sealed VFD
-# model_area = 'FSA'
-
-# wwtp_pipe = '52458'
-# groupby_acronym_owner = True
-# pipe_ls_exclusions = ['55773','55778','55783','55788','55796','55799','55803']
-# model = 'FSA_2030pop_V164_VFD.sqlite' #Trace longitudinal section; can be any model in the model folder.
-# output_folder = r'J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\X_Times_BSF\EFLSP_Modelling\Phase_0\HTML_Plots_V164_V' #create this folder and include the file "Maps_and_CSS" to the empty folder
-# result_folder = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\X_Times_BSF\EFLSP_Modelling\Phase_0\Model_Master_V164_V" #model folder input
-# outfall_summary = r"J:\SEWER_AREA_MODELS\FSA\03_SIMULATION_WORK\Calibration_2022\WWF_Calibration_Reports\FSA_Calibration_Specs\Outfall_Summary_No_Recapture.csv"
-
-# element_filter = []
-# res_list = []
-
-
-# res_list.append(['1 I/I, 2030 Pop','FSA_BSF_11p2k_2030pop_V_2030_NetworkDefault_Network_HD.res1d','1 * I/I'])
-# res_list.append(['2 I/I, 2030 Pop','FSA_BSF_22p4k_2030pop_V_2030_NetworkDefault_Network_HD.res1d','2 * I/I'])
-# res_list.append(['3 I/I, 2030 Pop','FSA_BSF_33p6k_2030pop_V_2030_NetworkDefault_Network_HD.res1d','3 * I/I'])
-# # res_list.append(['4 I/I, 2030 Pop','FSA_BSF_44p8k_2030pop_V_2030_NetworkDefault_Network_HD.res1d','4 * I/I'])
-# res_list.append(['1 I/I, 2040 Pop','FSA_BSF_11p2k_2040pop_V_2030_NetworkDefault_Network_HD.res1d','1 * I/I'])
-# res_list.append(['2 I/I, 2040 Pop','FSA_BSF_22p4k_2040pop_V_2030_NetworkDefault_Network_HD.res1d','2 * I/I'])
-# res_list.append(['3 I/I, 2040 Pop','FSA_BSF_33p6k_2040pop_V_2030_NetworkDefault_Network_HD.res1d','3 * I/I'])
-# # res_list.append(['4 I/I, 2040 Pop','FSA_BSF_44p8k_2040pop_V_2030_NetworkDefault_Network_HD.res1d','4 * I/I'])
-# res_list.append(['1 I/I, 2050 Pop','FSA_BSF_11p2k_2050pop_V_2030_NetworkDefault_Network_HD.res1d','1 * I/I'])
-# res_list.append(['2 I/I, 2050 Pop','FSA_BSF_22p4k_2050pop_V_2030_NetworkDefault_Network_HD.res1d','2 * I/I'])
-# res_list.append(['3 I/I, 2050 Pop','FSA_BSF_33p6k_2050pop_V_2030_NetworkDefault_Network_HD.res1d','3 * I/I'])
-# # res_list.append(['4 I/I, 2050 Pop','FSA_BSF_44p8k_2050pop_V_2030_NetworkDefault_Network_HD.res1d','4 * I/I'])
-# res_list.append(['1 I/I, 2060 Pop','FSA_BSF_11p2k_2060pop_V_2030_NetworkDefault_Network_HD.res1d','1 * I/I'])
-# res_list.append(['2 I/I, 2060 Pop','FSA_BSF_22p4k_2060pop_V_2030_NetworkDefault_Network_HD.res1d','2 * I/I'])
-# res_list.append(['3 I/I, 2060 Pop','FSA_BSF_33p6k_2060pop_V_2030_NetworkDefault_Network_HD.res1d','3 * I/I'])
-# # res_list.append(['4 I/I, 2060 Pop','FSA_BSF_44p8k_2060pop_V_2030_NetworkDefault_Network_HD.res1d','4 * I/I'])
-# res_list.append(['1 I/I, 2070 Pop','FSA_BSF_11p2k_2070pop_V_2030_NetworkDefault_Network_HD.res1d','1 * I/I'])
-# res_list.append(['2 I/I, 2070 Pop','FSA_BSF_22p4k_2070pop_V_2030_NetworkDefault_Network_HD.res1d','2 * I/I'])
-# res_list.append(['3 I/I, 2070 Pop','FSA_BSF_33p6k_2070pop_V_2030_NetworkDefault_Network_HD.res1d','3 * I/I'])
-# # res_list.append(['4 I/I, 2070 Pop','FSA_BSF_44p8k_2070pop_V_2030_NetworkDefault_Network_HD.res1d','4 * I/I'])
-
-# master_list.append([model_area,model,result_folder,output_folder,res_list,groupby_acronym_owner,pipe_ls_exclusions,element_filter,name_shortenings,wwtp_pipe,outfall_summary,mus_path])
-
-# #
-
-###########################################################################################################################################
 
 
 ##########################################################################################
